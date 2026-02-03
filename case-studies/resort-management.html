@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resort Management – Case Study | Feroze Basha</title>
+
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="case-study">
+
+
+<header class="site-header">
+    <div class="site-header__inner">
+        <a class="logo" href="../index.html">Feroze Basha</a>
+        <nav class="site-nav">
+            <a href="../index.html#projects">Projects</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- HERO -->
+    <section class="section">
+        <p class="eyebrow">Case Study</p>
+        <h1>Resort Management System</h1>
+        <p class="lead">
+            Backend system for managing resort bookings, operations, and secure access
+            with clean APIs and structured workflows.
+        </p>
+
+        <ul class="pill-row">
+            <span>.NET 8</span>
+            <span>ASP.NET Core</span>
+            <span>Clean Architecture</span>
+            <span>PostgreSQL</span>
+            <span>JWT Auth</span>
+        </ul>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section">
+        <h2>Problem</h2>
+        <p>
+            Resorts require a centralized backend system to manage bookings, guests,
+            and internal operations reliably. Existing workflows were fragmented,
+            difficult to scale, and lacked proper access control.
+        </p>
+        <p>
+            The system needed to support multiple operational workflows while ensuring
+            data consistency, secure access, and future extensibility.
+        </p>
+    </section>
+
+    <!-- ROLE -->
+    <section class="section">
+        <h2>My Role & Responsibilities</h2>
+        <ul>
+            <li>Designed backend APIs for booking, guest, and operational management</li>
+            <li>Implemented authentication and role-based authorization</li>
+            <li>Structured the backend using Clean Architecture principles</li>
+            <li>Handled validation, error handling, and API consistency</li>
+        </ul>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="section">
+        <h2>Architecture & Design Decisions</h2>
+        <p>
+            I chose Clean Architecture to separate core business logic from
+            infrastructure concerns. This allowed the system to remain testable,
+            maintainable, and adaptable as requirements evolved.
+        </p>
+
+        <ul>
+            <li><strong>API Layer:</strong> Handles HTTP requests, validation, and routing</li>
+            <li><strong>Application Layer:</strong> Business rules and use-case logic</li>
+            <li><strong>Domain Layer:</strong> Core entities and rules</li>
+            <li><strong>Infrastructure:</strong> Database, authentication, and integrations</li>
+        </ul>
+    </section>
+
+    <!-- SECURITY -->
+    <section class="section">
+        <h2>Security Considerations</h2>
+        <ul>
+            <li>JWT-based authentication for stateless API access</li>
+            <li>Role-based authorization for staff and admin operations</li>
+            <li>Input validation to prevent invalid or malicious requests</li>
+            <li>Centralized exception handling to avoid data leakage</li>
+        </ul>
+    </section>
+
+    <!-- PERFORMANCE -->
+    <section class="section">
+        <h2>Performance & Reliability</h2>
+        <ul>
+            <li>Optimized database queries for booking and availability checks</li>
+            <li>Stateless APIs enabling horizontal scalability</li>
+            <li>Clear separation of read and write responsibilities</li>
+        </ul>
+    </section>
+
+    <!-- FUTURE -->
+    <section class="section">
+        <h2>Future Improvements</h2>
+        <ul>
+            <li>Add Redis caching for frequently accessed data</li>
+            <li>Introduce background workers for booking confirmations</li>
+            <li>Implement structured logging and monitoring</li>
+            <li>Add rate limiting for public endpoints</li>
+        </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <p class="impact">
+            This project reflects how I design backend systems that are secure,
+            scalable, and ready for real-world operational use.
+        </p>
+
+        <a class="button" href="../index.html#contact">
+            Discuss a Similar Backend Project
+        </a>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 Feroze Basha</p>
+</footer>
+
+</body>
+</html>

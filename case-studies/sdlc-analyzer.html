@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SDLC Analyzer – Case Study | Feroze Basha</title>
+
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body class="case-study">
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="logo" href="../index.html">Feroze Basha</a>
+
+    <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            aria-controls="primary-navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Main navigation">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="section">
+    <p class="eyebrow">Case Study</p>
+    <h1>SDLC Analyzer</h1>
+    <p class="lead">
+      Backend system that analyzes software development lifecycle inputs
+      and maps them to security, compliance, and engineering requirements.
+    </p>
+
+    <div class="pill-row">
+      <span>.NET 8</span>
+      <span>ASP.NET Core</span>
+      <span>Clean Architecture</span>
+      <span>ML.NET</span>
+      <span>Hugging Face</span>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section">
+    <h2>Problem</h2>
+    <p>
+      Teams often struggle to translate high-level requirements into
+      concrete security and compliance considerations during the SDLC.
+      Important risks are discovered late, increasing cost and delivery time.
+    </p>
+    <p>
+      The challenge was to build a backend system that could analyze
+      requirement inputs early and provide meaningful insights in a
+      structured, repeatable way.
+    </p>
+  </section>
+
+  <!-- ROLE -->
+  <section class="section">
+    <h2>My Role & Responsibilities</h2>
+    <ul>
+      <li>Designed backend APIs for requirement analysis and insight generation</li>
+      <li>Integrated ML-based models for text analysis</li>
+      <li>Structured the system using Clean Architecture principles</li>
+      <li>Ensured secure handling of inputs and outputs</li>
+    </ul>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="section">
+    <h2>Architecture & Design Decisions</h2>
+    <p>
+      The system follows Clean Architecture to isolate domain logic
+      from infrastructure concerns such as machine learning models
+      and external services.
+    </p>
+
+    <ul>
+      <li><strong>API Layer:</strong> Accepts requirement inputs and exposes analysis results</li>
+      <li><strong>Application Layer:</strong> Coordinates analysis workflows</li>
+      <li><strong>Domain Layer:</strong> Represents SDLC concepts and rules</li>
+      <li><strong>Infrastructure:</strong> ML.NET models and external integrations</li>
+    </ul>
+  </section>
+
+  <!-- SECURITY -->
+  <section class="section">
+    <h2>Security & Compliance Considerations</h2>
+    <ul>
+      <li>Validated and sanitized user inputs before processing</li>
+      <li>Restricted access to analysis endpoints</li>
+      <li>Avoided exposing internal model details via APIs</li>
+      <li>Centralized error handling for safe failure responses</li>
+    </ul>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section class="section">
+    <h2>Performance & Reliability</h2>
+    <ul>
+      <li>Optimized request processing to avoid blocking operations</li>
+      <li>Stateless API design for scalability</li>
+      <li>Clear separation between analysis and transport layers</li>
+    </ul>
+  </section>
+
+  <!-- FUTURE -->
+  <section class="section">
+    <h2>Future Improvements</h2>
+    <ul>
+      <li>Add asynchronous processing for heavy analysis workloads</li>
+      <li>Introduce caching for repeated analysis inputs</li>
+      <li>Enhance observability with structured logging</li>
+      <li>Expand model support for additional SDLC stages</li>
+    </ul>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <p class="impact">
+      SDLC Analyzer reflects my ability to combine backend engineering
+      with analytical and security-focused thinking.
+    </p>
+
+    <a class="button" href="../index.html#contact">
+      Discuss a Similar Backend System
+    </a>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 Feroze Basha</p>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
