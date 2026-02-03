@@ -1011,7 +1011,7 @@ body.nav-open .nav-toggle span:nth-child(3) {
   transition:
     opacity calc(0.6s * var(--motion-duration, 1)) var(--ease-out-expo),
     transform calc(0.6s * var(--motion-duration, 1)) var(--ease-out-expo);
-  transition-delay: var(--reveal-delay, 0ms);
+  transition-delay: 0ms;
 }
 
 [data-reveal].revealed {
@@ -1277,5 +1277,46 @@ body.case-study .impact {
   border-left: 4px solid var(--accent);
   padding-left: 1.5rem;
   margin: 3rem 0;
+}
+
+/* Living animation ONLY for Active Development */
+.chip-active {
+  position: relative;
+  overflow: hidden;
+}
+
+.chip-active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+          120deg,
+          transparent 30%,
+          rgba(31, 138, 112, 0.45),
+          transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: chipShimmer 2.8s ease-in-out infinite;
+}
+
+@keyframes chipShimmer {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .chip-active::after {
+    animation: none;
+  }
 }
 
