@@ -8,34 +8,45 @@ import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const DEFAULT_SCROLL_STATE = { scrolled: false, progress: 0 };
+let cachedScrollState = DEFAULT_SCROLL_STATE;
+
+function readScrollState() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  const nextState = {
+    scrolled: scrollTop > 24,
+    progress: Math.min(100, progress),
+  };
+
+  if (
+    cachedScrollState.scrolled === nextState.scrolled &&
+    cachedScrollState.progress === nextState.progress
+  ) {
+    return cachedScrollState;
+  }
+
+  cachedScrollState = nextState;
+  return cachedScrollState;
+}
+
+function subscribeToScroll(onStoreChange: () => void) {
+  window.addEventListener("scroll", onStoreChange, { passive: true });
+  window.addEventListener("resize", onStoreChange);
+  return () => {
+    window.removeEventListener("scroll", onStoreChange);
+    window.removeEventListener("resize", onStoreChange);
+  };
+}
 
 export function Header() {
   const pathname = usePathname();
   const [mobileMenuRoute, setMobileMenuRoute] = useState<string | null>(null);
   const mobileOpen = mobileMenuRoute === pathname;
 
-  const getScrollSnapshot = useCallback(() => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    return {
-      scrolled: scrollTop > 24,
-      progress: Math.min(100, progress),
-    };
-  }, []);
-
-  const subscribeToScroll = useCallback((onStoreChange: () => void) => {
-    window.addEventListener("scroll", onStoreChange, { passive: true });
-    window.addEventListener("resize", onStoreChange);
-    return () => {
-      window.removeEventListener("scroll", onStoreChange);
-      window.removeEventListener("resize", onStoreChange);
-    };
-  }, []);
-
   const { scrolled, progress: scrollProgress } = useSyncExternalStore(
     subscribeToScroll,
-    getScrollSnapshot,
+    readScrollState,
     () => DEFAULT_SCROLL_STATE
   );
 
