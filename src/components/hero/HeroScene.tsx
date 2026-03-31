@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import dynamic from "next/dynamic";
 
 const Scene = dynamic(() => import("@/components/three/Scene").then((m) => m.Scene), {
@@ -22,23 +22,24 @@ function HeroFallback() {
   );
 }
 
+function subscribeToHeroScenePreference() {
+  return () => {};
+}
+
+function getHeroSceneSnapshot() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isMobile = window.innerWidth < 768;
+  const canvas = document.createElement("canvas");
+  const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+  return !prefersReduced && !isMobile && !!gl;
+}
+
 export function HeroScene() {
-  const [shouldRender, setShouldRender] = useState(false);
-
-  useEffect(() => {
-    // Only load Three.js on desktop with no reduced-motion preference
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.innerWidth < 768;
-
-    // Also check for WebGL support
-    const canvas = document.createElement("canvas");
-    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-    const hasWebGL = !!gl;
-
-    if (!prefersReduced && !isMobile && hasWebGL) {
-      setShouldRender(true);
-    }
-  }, []);
+  const shouldRender = useSyncExternalStore(
+    subscribeToHeroScenePreference,
+    getHeroSceneSnapshot,
+    () => false
+  );
 
   if (!shouldRender) {
     return <HeroFallback />;

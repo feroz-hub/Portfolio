@@ -6,15 +6,20 @@ import * as THREE from "three";
 
 const PARTICLE_COUNT = 120;
 
+function pseudoRandom(seed: number) {
+  const value = Math.sin(seed * 12.9898) * 43758.5453;
+  return value - Math.floor(value);
+}
+
 export function ParticleField() {
   const pointsRef = useRef<THREE.Points>(null);
 
   const positions = useMemo(() => {
     const arr = new Float32Array(PARTICLE_COUNT * 3);
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * 12;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * 8;
-      arr[i * 3 + 2] = (Math.random() - 0.5) * 6;
+      arr[i * 3] = (pseudoRandom(i * 3 + 1) - 0.5) * 12;
+      arr[i * 3 + 1] = (pseudoRandom(i * 3 + 2) - 0.5) * 8;
+      arr[i * 3 + 2] = (pseudoRandom(i * 3 + 3) - 0.5) * 6;
     }
     return arr;
   }, []);

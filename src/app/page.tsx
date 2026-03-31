@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { Section, SectionHeader } from "@/components/shared/Section";
 import { HomeHero } from "@/components/hero/HomeHero";
 import { TerminalBoot } from "@/components/hero/TerminalBoot";
@@ -10,23 +10,30 @@ import { CustomCursor } from "@/components/shared/CustomCursor";
 import { FeaturedSystems } from "@/components/systems/FeaturedSystems";
 import { TECH_STACK_MARQUEE, STATS } from "@/lib/constants";
 
-export default function HomePage() {
-  const [booted, setBooted] = useState(false);
-  const [showBoot, setShowBoot] = useState(false);
+function subscribeToSessionBoot() {
+  return () => {};
+}
 
-  useEffect(() => {
-    // Only show boot on first visit this session
-    const hasBooted = sessionStorage.getItem("fbt-booted");
-    if (hasBooted) {
-      setBooted(true);
-    } else {
-      setShowBoot(true);
-    }
-  }, []);
+function getSessionBootSnapshot() {
+  try {
+    return window.sessionStorage.getItem("fbt-booted") === "1";
+  } catch {
+    return false;
+  }
+}
+
+export default function HomePage() {
+  const sessionBooted = useSyncExternalStore<boolean | null>(
+    subscribeToSessionBoot,
+    getSessionBootSnapshot,
+    () => null
+  );
+  const [bootCompleted, setBootCompleted] = useState(false);
+  const booted = sessionBooted === true || bootCompleted;
+  const showBoot = sessionBooted === false && !bootCompleted;
 
   function handleBootComplete() {
-    setBooted(true);
-    setShowBoot(false);
+    setBootCompleted(true);
     try {
       sessionStorage.setItem("fbt-booted", "1");
     } catch {
