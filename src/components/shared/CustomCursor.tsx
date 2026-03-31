@@ -1,31 +1,39 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 
+function subscribeToCursorAvailability() {
+  return () => {};
+}
+
+function getCursorAvailabilitySnapshot() {
+  const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  return !(isTouchDevice || prefersReduced);
+}
+
 export function CustomCursor() {
-  const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const isEnabled = useSyncExternalStore(
+    subscribeToCursorAvailability,
+    getCursorAvailabilitySnapshot,
+    () => false
+  );
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     setPosition({ x: e.clientX, y: e.clientY });
-    if (!isVisible) setIsVisible(true);
-  }, [isVisible]);
+    setIsVisible(true);
+  }, []);
 
   const handleMouseLeave = useCallback(() => {
     setIsVisible(false);
   }, []);
 
   useEffect(() => {
-    // Only on desktop, no touch, no reduced motion
-    const isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (isTouchDevice || prefersReduced) return;
-
-    // Signal that we should render the cursor elements
-    setMounted(true);
+    if (!isEnabled) return;
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
@@ -62,10 +70,9 @@ export function CustomCursor() {
       document.removeEventListener("pointerout", handlePointerOut);
       document.documentElement.classList.remove("custom-cursor-active");
     };
-  }, [handleMouseMove, handleMouseLeave]);
+  }, [handleMouseMove, handleMouseLeave, isEnabled]);
 
-  // Render nothing on server AND first client render (avoids hydration mismatch)
-  if (!mounted) return null;
+  if (!isEnabled) return null;
 
   return (
     <>
