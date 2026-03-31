@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Case study for a resort management backend system built with .NET 8, ASP.NET Core, JWT auth, and clean architecture."
+    >
+    <meta name="theme-color" content="#0d1726">
+    <meta property="og:title" content="Resort Management | Case Study">
+    <meta
+      property="og:description"
+      content="Backend design for bookings, guests, staff access, and operational workflows in a resort management system."
+    >
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://feroz-hub.github.io/Portfolio/case-studies/resort-management.html">
+    <meta property="og:image" content="https://feroz-hub.github.io/Portfolio/social-card.svg">
+    <link rel="canonical" href="https://feroz-hub.github.io/Portfolio/case-studies/resort-management.html">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>Resort Management | Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body id="top" class="case-study">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-aura" aria-hidden="true"></div>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="logo" href="../index.html">
+          <span class="logo-mark">FB</span>
+          <span class="logo-copy">
+            <strong>Feroze Basha</strong>
+            <span>Case Study</span>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          aria-controls="primary-navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="site-nav" id="primary-navigation" aria-label="Case study navigation">
+          <a href="#overview">Overview</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#outcomes">Outcomes</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="button subtle" href="../index.html#systems">Portfolio</a>
+          <a class="button" href="../index.html#contact">Let’s Talk</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="case-main">
+      <section class="case-hero section">
+        <div class="container case-hero__layout">
+          <div class="case-hero__copy" data-reveal>
+            <p class="eyebrow">Case Study</p>
+            <h1>Resort Management System</h1>
+            <p class="lead">
+              A backend-focused platform for bookings, guest operations, and staff workflows, shaped to keep access
+              control clean and daily operations dependable.
+            </p>
+            <div class="case-nav-inline">
+              <a href="../index.html#systems">Back to Portfolio</a>
+              <a href="https://github.com/feroz-hub/ResortManagement" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+            <div class="pill-row">
+              <span>.NET 8</span>
+              <span>ASP.NET Core</span>
+              <span>JWT Auth</span>
+              <span>PostgreSQL</span>
+              <span>Clean Architecture</span>
+            </div>
+          </div>
+
+          <aside class="case-hero__panel" data-reveal data-spotlight>
+            <div class="case-meta-grid">
+              <article class="case-meta-card">
+                <p class="case-meta-label">Role</p>
+                <strong>Backend design and delivery</strong>
+                <p>API structure, authentication, validation, and workflow consistency.</p>
+              </article>
+              <article class="case-meta-card">
+                <p class="case-meta-label">Core focus</p>
+                <strong>Bookings plus operational control</strong>
+                <p>Support guest activity and staff operations from one coherent backend.</p>
+              </article>
+              <article class="case-meta-card">
+                <p class="case-meta-label">Primary priority</p>
+                <strong>Secure multi-role access</strong>
+                <p>Protect sensitive actions while keeping the system easy to extend later.</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="overview">
+        <div class="container case-grid">
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Problem Space</p>
+            <h2>What needed to work well</h2>
+            <p>
+              Resort operations often span bookings, guest information, internal coordination, and access-sensitive
+              actions. Without a structured backend, those workflows become fragmented and hard to trust.
+            </p>
+            <p>
+              The challenge here was to create a backend that kept these workflows consistent while leaving enough
+              room for future operational growth.
+            </p>
+          </article>
+
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Responsibilities</p>
+            <h2>What I owned</h2>
+            <ul class="detail-list">
+              <li>Designed backend APIs for bookings, guests, and operational modules.</li>
+              <li>Implemented authentication and role-based authorization paths.</li>
+              <li>Structured the system around clean architecture boundaries.</li>
+              <li>Handled validation, safe failure behavior, and API consistency.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="architecture">
+        <div class="container case-grid">
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Architecture</p>
+            <h2>How the backend was shaped</h2>
+            <p>
+              I used clean architecture so booking logic, guest rules, and operational workflows could remain isolated
+              from infrastructure details. That separation keeps the system easier to test and less expensive to change.
+            </p>
+            <ul class="detail-list">
+              <li>API layer for routing, validation, and request orchestration</li>
+              <li>Application layer for use cases and coordinated workflows</li>
+              <li>Domain layer for business rules and core entities</li>
+              <li>Infrastructure layer for persistence, authentication, and integrations</li>
+            </ul>
+          </article>
+
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Security</p>
+            <h2>Protecting the operational paths</h2>
+            <p>
+              The most important risk in this kind of system is uncontrolled access to staff actions or guest data, so
+              security needed to be part of the design rather than an afterthought.
+            </p>
+            <ul class="detail-list">
+              <li>JWT-based access for stateless authentication</li>
+              <li>Role-aware authorization for staff and admin capabilities</li>
+              <li>Input validation to block malformed or risky payloads</li>
+              <li>Centralized exception handling to avoid leaking internals</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="outcomes">
+        <div class="container case-grid">
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Reliability</p>
+            <h2>Keeping operations stable</h2>
+            <p>
+              Booking systems become stressful when reads, writes, and availability checks are unreliable, so I focused
+              on backend behavior that remains predictable under everyday operational use.
+            </p>
+            <ul class="detail-list">
+              <li>Optimized booking and availability queries</li>
+              <li>Stateless API design to support horizontal scaling</li>
+              <li>Clear read and write responsibilities for maintainability</li>
+            </ul>
+          </article>
+
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Next Iteration</p>
+            <h2>Where I would extend it next</h2>
+            <ul class="detail-list">
+              <li>Add Redis caching for frequently accessed booking and guest data.</li>
+              <li>Introduce background workers for confirmations and operational tasks.</li>
+              <li>Improve observability with structured logging and monitoring.</li>
+              <li>Add rate limiting for externally reachable endpoints.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="case-cta" data-reveal data-spotlight>
+            <p class="case-label">Next Move</p>
+            <h2>Need this level of backend structure for your product?</h2>
+            <p>
+              I enjoy work where the backend has to support real operations, clear access control, and delivery that
+              does not become chaotic as features expand.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="mailto:bashaferoz66@gmail.com">Email Me</a>
+              <a class="button subtle" href="../index.html#contact">Portfolio Contact</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Feroze Basha</p>
+        <a href="../index.html#systems">View More Projects</a>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Case study for CongoCart, an e-commerce backend designed for cart, checkout, and order workflows using .NET 8 and clean architecture."
+    >
+    <meta name="theme-color" content="#0d1726">
+    <meta property="og:title" content="CongoCart | Case Study">
+    <meta
+      property="og:description"
+      content="Backend architecture for reliable cart, checkout, and ordering workflows with JWT authentication and scalable design."
+    >
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://feroz-hub.github.io/Portfolio/case-studies/congo-cart.html">
+    <meta property="og:image" content="https://feroz-hub.github.io/Portfolio/social-card.svg">
+    <link rel="canonical" href="https://feroz-hub.github.io/Portfolio/case-studies/congo-cart.html">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <title>CongoCart | Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body id="top" class="case-study">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-aura" aria-hidden="true"></div>
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="logo" href="../index.html">
+          <span class="logo-mark">FB</span>
+          <span class="logo-copy">
+            <strong>Feroze Basha</strong>
+            <span>Case Study</span>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          aria-controls="primary-navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="site-nav" id="primary-navigation" aria-label="Case study navigation">
+          <a href="#overview">Overview</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#outcomes">Outcomes</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="button subtle" href="../index.html#systems">Portfolio</a>
+          <a class="button" href="../index.html#contact">Let’s Talk</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="case-main">
+      <section class="case-hero section">
+        <div class="container case-hero__layout">
+          <div class="case-hero__copy" data-reveal>
+            <p class="eyebrow">Case Study</p>
+            <h1>CongoCart</h1>
+            <p class="lead">
+              An e-commerce backend shaped around cart behavior, secure checkout, and order workflows that stay
+              dependable as traffic and product requirements grow.
+            </p>
+            <div class="case-nav-inline">
+              <a href="../index.html#systems">Back to Portfolio</a>
+              <a href="https://github.com/feroz-hub/CongoCart" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+            <div class="pill-row">
+              <span>.NET 8</span>
+              <span>ASP.NET Core</span>
+              <span>JWT Authentication</span>
+              <span>PostgreSQL</span>
+              <span>Clean Architecture</span>
+            </div>
+          </div>
+
+          <aside class="case-hero__panel" data-reveal data-spotlight>
+            <div class="case-meta-grid">
+              <article class="case-meta-card">
+                <p class="case-meta-label">Role</p>
+                <strong>Backend API design and workflow implementation</strong>
+                <p>Cart, checkout, orders, validation, and secure endpoint behavior.</p>
+              </article>
+              <article class="case-meta-card">
+                <p class="case-meta-label">Core focus</p>
+                <strong>Commerce reliability</strong>
+                <p>Keep cart and order flows predictable under real usage pressure.</p>
+              </article>
+              <article class="case-meta-card">
+                <p class="case-meta-label">Primary priority</p>
+                <strong>Security plus clarity</strong>
+                <p>Protect purchase paths without turning the system into a tangle.</p>
+              </article>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="overview">
+        <div class="container case-grid">
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Problem Space</p>
+            <h2>What needed to work well</h2>
+            <p>
+              E-commerce backends carry a lot of pressure: carts must stay consistent, checkout must feel secure, and
+              order behavior has to remain trustworthy even as concurrency rises.
+            </p>
+            <p>
+              The main challenge was designing APIs that could support this without tightly coupling business logic to
+              infrastructure or letting edge cases create brittle user journeys.
+            </p>
+          </article>
+
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Responsibilities</p>
+            <h2>What I owned</h2>
+            <ul class="detail-list">
+              <li>Designed RESTful APIs for carts, checkout, and order management.</li>
+              <li>Implemented JWT-based authentication and role-aware authorization.</li>
+              <li>Used clean architecture to keep use cases isolated from infrastructure.</li>
+              <li>Handled validation, error consistency, and backend workflow clarity.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="architecture">
+        <div class="container case-grid">
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Architecture</p>
+            <h2>How the system was organized</h2>
+            <p>
+              I used clean architecture so the platform could support ongoing feature growth without blending domain
+              logic, API handling, and persistence concerns into the same layer.
+            </p>
+            <ul class="detail-list">
+              <li>API layer for routing, contracts, and validation</li>
+              <li>Application layer for checkout and order workflows</li>
+              <li>Domain layer for business rules and entity logic</li>
+              <li>Infrastructure layer for persistence and authentication support</li>
+            </ul>
+          </article>
+
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Security</p>
+            <h2>Protecting the checkout path</h2>
+            <p>
+              In commerce systems, trust breaks quickly if sensitive operations are weakly protected, so the backend
+              needed a strong security baseline from the first iteration.
+            </p>
+            <ul class="detail-list">
+              <li>JWT authentication for stateless API access</li>
+              <li>Authorization checks for cart and order-sensitive operations</li>
+              <li>Input validation to reduce malformed and risky requests</li>
+              <li>Centralized exception handling for safe API responses</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="outcomes">
+        <div class="container case-grid">
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Reliability</p>
+            <h2>Preparing for scale and consistency</h2>
+            <p>
+              The backend was designed to stay predictable under concurrent user activity by keeping workflows clear
+              and reducing unnecessary coupling between reads, writes, and surrounding infrastructure.
+            </p>
+            <ul class="detail-list">
+              <li>Optimized database access for cart and order behavior</li>
+              <li>Stateless service design for easier horizontal scaling</li>
+              <li>Clear separation between command-heavy and read-heavy concerns</li>
+            </ul>
+          </article>
+
+          <article class="case-section-card" data-reveal data-spotlight>
+            <p class="case-label">Next Iteration</p>
+            <h2>What I would add next</h2>
+            <ul class="detail-list">
+              <li>Redis caching for cart and product-adjacent data.</li>
+              <li>Background workers for post-checkout processing.</li>
+              <li>Structured monitoring and logging for production support.</li>
+              <li>Rate limiting and throttling on public-facing endpoints.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="case-cta" data-reveal data-spotlight>
+            <p class="case-label">Next Move</p>
+            <h2>Building commerce workflows that need to feel dependable?</h2>
+            <p>
+              That kind of work fits me well, especially when the backend needs equal attention on security,
+              predictability, and future-friendly structure.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="mailto:bashaferoz66@gmail.com">Email Me</a>
+              <a class="button subtle" href="../index.html#contact">Portfolio Contact</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© 2026 Feroze Basha</p>
+        <a href="../index.html#systems">View More Projects</a>
+      </div>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
