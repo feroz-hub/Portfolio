@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Feroze Basha portfolio social card">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1726" />
+      <stop offset="100%" stop-color="#16253a" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="195" cy="110" r="180" fill="#2563eb" opacity="0.14" />
+  <circle cx="1010" cy="110" r="160" fill="#d97706" opacity="0.14" />
+  <circle cx="940" cy="540" r="230" fill="#0f766e" opacity="0.14" />
+  <g opacity="0.18">
+    <path d="M0 90h1200M0 180h1200M0 270h1200M0 360h1200M0 450h1200M0 540h1200" stroke="#ffffff" />
+    <path d="M120 0v630M240 0v630M360 0v630M480 0v630M600 0v630M720 0v630M840 0v630M960 0v630M1080 0v630" stroke="#ffffff" />
+  </g>
+  <rect x="88" y="84" width="184" height="184" rx="46" fill="url(#accent)" />
+  <text x="180" y="198" text-anchor="middle" font-family="Sora, Arial, sans-serif" font-size="84" font-weight="700" fill="#ffffff">FB</text>
+  <text x="88" y="334" font-family="IBM Plex Mono, monospace" font-size="28" fill="#7dd3fc" letter-spacing="6">BACKEND SYSTEMS PORTFOLIO</text>
+  <text x="88" y="420" font-family="Sora, Arial, sans-serif" font-size="72" font-weight="700" fill="#ffffff">Feroze Basha</text>
+  <text x="88" y="486" font-family="IBM Plex Sans, Arial, sans-serif" font-size="34" fill="#dbe7f4">
+    Secure APIs, identity systems, clean architecture,
+  </text>
+  <text x="88" y="536" font-family="IBM Plex Sans, Arial, sans-serif" font-size="34" fill="#dbe7f4">
+    automation, and backend delivery that feels dependable.
+  </text>
+  <rect x="88" y="560" width="428" height="8" rx="4" fill="url(#accent)" />
+</svg>
